@@ -25,6 +25,16 @@ body {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 84px;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   font-family: var(--font-inter), system-ui, sans-serif;
   color: var(--ink);
@@ -829,7 +839,7 @@ h4 {
 }
 .plan__amount span {
   font-size: 14px;
-  color: var(--muted-3);
+  color: var(--muted-2);
   font-weight: 500;
 }
 .plan--gold .plan__amount strong {
@@ -1828,7 +1838,7 @@ h4 {
   text-align: left;
 }
 .dia-table thead th.is-featured {
-  background: var(--green-dark);
+  background: var(--green-text);
 }
 .dia-table tbody th {
   text-align: left;
@@ -1841,7 +1851,7 @@ h4 {
   display: block;
   font-weight: 500;
   font-size: 12.5px;
-  color: var(--muted-3);
+  color: var(--muted-2);
   margin-top: 2px;
 }
 .dia-table tbody td {
@@ -1864,7 +1874,7 @@ h4 {
   max-width: 900px;
   margin: 16px auto 0;
   font-size: 13.5px;
-  color: var(--muted-3);
+  color: var(--muted-2);
   text-align: center;
 }
 
@@ -2109,6 +2119,90 @@ h4 {
   font-weight: 600;
   font-size: 15px;
   color: var(--green-bright);
+}
+
+/* ===== DIASPO PAGE — critique fixes ===== */
+.plan__highlight {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: var(--mint);
+  color: var(--green-dark);
+  border-radius: 12px;
+  padding: 10px 12px;
+  font-size: 12.5px;
+  line-height: 1.45;
+  font-weight: 600;
+  margin: 0 0 18px;
+}
+.plan__highlight svg {
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+.plan--gold .plan__highlight {
+  background: rgba(56, 217, 138, 0.14);
+  color: var(--green-bright);
+}
+.dia-subscribe__stores {
+  margin-top: 26px;
+  padding-top: 22px;
+  border-top: 1px solid var(--border);
+}
+.dia-subscribe__stores > span {
+  display: block;
+  font-size: 13.5px;
+  color: var(--muted-2);
+  margin-bottom: 12px;
+}
+.dia-beyond__card {
+  position: relative;
+}
+.dia-beyond__tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--green-text);
+  background: var(--mint);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.dia-testi {
+  padding: 24px 24px 92px;
+}
+.dia-testi__card {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 44px 40px;
+  box-shadow: 0 16px 40px rgba(14, 32, 51, 0.07);
+}
+.dia-testi__quote {
+  font-family: var(--font-poppins), sans-serif;
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--navy);
+  font-weight: 500;
+  margin: 14px 0 22px;
+}
+.dia-testi__who {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.dia-testi__name {
+  font-weight: 700;
+  color: var(--navy);
+}
+.dia-testi__role {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--green-text);
 }
 
 /* ===== NOT FOUND ===== */

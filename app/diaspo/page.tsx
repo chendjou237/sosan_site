@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Header from "../Header";
 import Footer from "../Footer";
-import { CDN } from "../constants";
+import StoreButtons from "../StoreButtons";
+import { CDN, partners } from "../constants";
 import {
   IconCheckCircle,
   IconUsers,
@@ -38,8 +39,9 @@ const formules = [
     price: "30",
     dot: "#9AA7B2",
     tag: null,
-    lead: "80% des dépenses médicales courantes",
-    desc: "Une solution pour couvrir les soins essentiels de vos proches dans un cadre maîtrisé : hôpitaux publics et confessionnels d'un réseau sélectionné.",
+    lead: "L'essentiel — soins courants",
+    desc: "Couvre 80% des dépenses médicales courantes dans un réseau sélectionné d'hôpitaux publics et confessionnels. La base pour un accès aux soins maîtrisé.",
+    highlight: null,
     featured: false,
   },
   {
@@ -47,8 +49,9 @@ const formules = [
     price: "50",
     dot: "var(--gold)",
     tag: "LE PLUS CHOISI",
-    lead: "80% avec des plafonds plus élevés",
-    desc: "Une prise en charge élargie et une orientation facilitée vers des structures publiques et privées reconnues pour la qualité de leurs services au Cameroun.",
+    lead: "Plafonds relevés, réseau élargi",
+    desc: "La couverture de Silver, avec des plafonds plus élevés et l'accès aux structures publiques et privées reconnues du Cameroun. Le meilleur équilibre.",
+    highlight: null,
     featured: true,
   },
   {
@@ -56,11 +59,20 @@ const formules = [
     price: "100",
     dot: "var(--gold)",
     tag: null,
-    lead: "Jusqu'à 80%, protection étendue",
-    desc: "Plafonds très élevés sur tout le réseau public et privé, plus des services ambulanciers à Yaoundé et Douala. L'option Diaspo Support Plus organise l'évacuation sanitaire d'urgence (EVASAN) vers l'étranger.",
+    lead: "Couverture maximale + urgences",
+    desc: "Les plafonds les plus élevés sur tout le réseau public et privé, plus des services ambulanciers à Yaoundé et Douala.",
+    highlight: "Inclut l'option Diaspo Support Plus : évacuation sanitaire d'urgence (EVASAN) vers l'étranger.",
     featured: false,
   },
 ];
+
+// NOTE: Illustrative testimonial — replace with a real, attributed quote (with consent).
+const testimonial = {
+  quote:
+    "« Ma mère est à Douala, moi à Lyon. Avec Diaspo Gold, ses consultations et ses médicaments sont couverts et je suis remboursée sans mauvaise surprise. Je dors mieux. »",
+  name: "Sandrine Nkolo",
+  role: "Diaspora · Lyon",
+};
 
 const pricing = [
   { profile: "Adulte", note: "21–60 ans", silver: "30 €", gold: "50 €", premium: "100 €" },
@@ -140,6 +152,26 @@ export default function Diaspo() {
           </div>
         </section>
 
+        {/* ===== TRUST STRIP ===== */}
+        <section className="trustbar" aria-label="Partenaire assurance">
+          <div className="trustbar__inner">
+            <p className="trustbar__label">
+              Assurance portée par Activa, en partenariat avec les institutions
+              de santé de référence
+            </p>
+            <div className="trustbar__logos">
+              {partners.slice(0, 6).map((p, i) => (
+                <img
+                  key={i}
+                  src={p.src}
+                  alt="Partenaire de SOSAN Diaspo Support"
+                  style={{ height: Math.min(p.h, 40) }}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ===== PRESTATIONS ===== */}
         <section className="dia-cover">
           <div className="wrap">
@@ -191,11 +223,17 @@ export default function Diaspo() {
                     </div>
                     <div className="plan__price">{f.lead}</div>
                     <p className="plan__desc">{f.desc}</p>
+                    {f.highlight && (
+                      <p className="plan__highlight">
+                        <IconGlobe size={16} />
+                        {f.highlight}
+                      </p>
+                    )}
                     <a
                       href="#souscrire"
                       className={f.featured ? "plan__cta-solid" : "plan__cta-outline"}
                     >
-                      Souscrire
+                      Choisir {f.name.replace("Diaspo ", "")}
                     </a>
                   </div>
                 </div>
@@ -247,7 +285,7 @@ export default function Diaspo() {
         <section className="dia-care">
           <div className="wrap">
             <div className="dia-care__head">
-              <span className="kicker">Diaspo Care</span>
+              <span className="kicker kicker--light">Diaspo Care</span>
               <h2>Un accompagnement au quotidien</h2>
               <p>
                 Bien plus qu&apos;une assurance : un dispositif humain et digital
@@ -276,7 +314,7 @@ export default function Diaspo() {
         <section id="souscrire" className="dia-subscribe">
           <div className="dia-subscribe__inner">
             <div className="dia-subscribe__app">
-              <span className="kicker kicker--light">Souscrire</span>
+              <span className="kicker">Souscrire</span>
               <h2>En quelques étapes, depuis l&apos;application</h2>
               <ol className="dia-steps">
                 {steps.map((s, i) => (
@@ -286,6 +324,12 @@ export default function Diaspo() {
                   </li>
                 ))}
               </ol>
+              <div className="dia-subscribe__stores">
+                <span>Téléchargez l&apos;application pour commencer</span>
+                <div className="store-row">
+                  <StoreButtons height={48} />
+                </div>
+              </div>
             </div>
             <div className="dia-subscribe__call">
               <div className="dia-call-card">
@@ -312,6 +356,7 @@ export default function Diaspo() {
             </div>
             <div className="dia-beyond__grid">
               <div className="dia-beyond__card">
+                <span className="dia-beyond__tag">Service complémentaire</span>
                 <IconUsers size={26} />
                 <h3>Diaspo Protégée</h3>
                 <p>
@@ -321,6 +366,7 @@ export default function Diaspo() {
                 </p>
               </div>
               <div className="dia-beyond__card">
+                <span className="dia-beyond__tag">Service complémentaire</span>
                 <IconGlobe size={26} />
                 <h3>Diaspo One Touch</h3>
                 <p>
@@ -361,6 +407,24 @@ export default function Diaspo() {
                 réserve des conditions d&apos;adhésion.
               </li>
             </ul>
+          </div>
+        </section>
+
+        {/* ===== TESTIMONIAL ===== */}
+        <section className="dia-testi">
+          <div className="dia-testi__card">
+            <div
+              className="testi-card__stars"
+              role="img"
+              aria-label="Note : 5 étoiles sur 5"
+            >
+              ★★★★★
+            </div>
+            <p className="dia-testi__quote">{testimonial.quote}</p>
+            <div className="dia-testi__who">
+              <span className="dia-testi__name">{testimonial.name}</span>
+              <span className="dia-testi__role">{testimonial.role}</span>
+            </div>
           </div>
         </section>
 
