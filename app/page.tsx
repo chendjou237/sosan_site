@@ -1,5 +1,8 @@
 import ContactForm from "./ContactForm";
 import Header from "./Header";
+import Footer from "./Footer";
+import StoreButtons from "./StoreButtons";
+import { CDN, PARTNER_FORM, partners } from "./constants";
 import {
   IconVideoCall,
   IconCreditCard,
@@ -10,17 +13,7 @@ import {
   IconCalendarCheck,
   IconMapPin,
   IconGlobe,
-  IconMail,
 } from "./icons";
-
-const APP_STORE = "https://apps.apple.com/us/app/sosan/id6745497491";
-const PLAY_STORE = "https://play.google.com/store/apps/details?id=com.sosan.app";
-const PARTNER_FORM =
-  "https://docs.google.com/forms/d/e/1FAIpQLSfMhj13vRZbfru3IqrUI5ZjXRVZWV8YNpCncyv-fKuYsDYOOQ/viewform";
-const CDN = "https://images.squarespace-cdn.com/content";
-
-const APPSTORE_IMG = `${CDN}/v1/670f885de587b3675c7f85ee/02d24ac5-221d-4f7c-9191-c84ae189f97f/appstore.png`;
-const PLAYSTORE_IMG = `${CDN}/v1/670f885de587b3675c7f85ee/0f5a4cd9-960e-492a-b050-f9b803514396/playstore.png`;
 
 const services = [
   {
@@ -68,52 +61,31 @@ const whyCards = [
   },
 ];
 
+// NOTE: Illustrative testimonials — replace with real, attributed quotes
+// (with consent) before wider launch. Names and quotes below are placeholders.
 const testimonials = [
   {
     quote:
-      "« J'ai été très satisfait de mon expérience avec SOSAN. Dès le premier contact, l'équipe s'est montrée professionnelle et attentive à mes besoins. Tout s'est déroulé sans stress. Je recommande vivement. »",
-    name: "Wade Warren",
-    role: "Patient",
-    img: `${CDN}/670f885de587b3675c7f85ee/50ced21f-0bae-4bb3-9b42-de3189f21207/128895.jpg?content-type=image%2Fjpeg`,
+      "« Depuis Paris, j'ai pu organiser et régler les consultations de ma mère à Douala en toute transparence. Je vois exactement où va chaque franc — c'est un vrai soulagement. »",
+    name: "Aïcha Mbarga",
+    role: "Diaspora · Paris",
+    img: `${CDN}/670f885de587b3675c7f85ee/a4d87498-101f-406f-b13d-a61a6504b7e2/19641.jpg?content-type=image%2Fjpeg`,
   },
   {
     quote:
-      "« Une excellente expérience ! L'accompagnement est vraiment personnalisé et on se sent écouté du début à la fin. L'équipe prend le temps d'expliquer chaque étape. Merci pour votre sérieux et votre réactivité. »",
-    name: "Jacob Jones",
-    role: "Patient",
+      "« J'ai consulté un généraliste depuis chez moi, sans faire la queue ni me déplacer. Le médecin a pris le temps de tout m'expliquer. Simple, rapide et rassurant. »",
+    name: "Emmanuel Fotso",
+    role: "Patient à Yaoundé",
     img: `${CDN}/670f885de587b3675c7f85ee/8aa4e46b-ec61-4850-b62c-3bfdc726ddf6/146757.jpg?content-type=image%2Fjpeg`,
   },
   {
     quote:
-      "« Service de très grande qualité. SOSAN m'a aidé à mieux comprendre mes démarches et à avancer sereinement. On sent qu'on est entre de bonnes mains. Je n'hésiterai pas à refaire appel à leurs services. »",
-    name: "Leslie Alexander",
-    role: "Patiente",
-    img: `${CDN}/670f885de587b3675c7f85ee/a4d87498-101f-406f-b13d-a61a6504b7e2/19641.jpg?content-type=image%2Fjpeg`,
+      "« Fini les frais surprises : les tarifs sont clairs avant chaque acte et l'équipe m'a accompagnée à chaque étape. Je le recommande sans hésiter à mes proches. »",
+    name: "Nadège Etoundi",
+    role: "Patiente à Douala",
+    img: `${CDN}/670f885de587b3675c7f85ee/50ced21f-0bae-4bb3-9b42-de3189f21207/128895.jpg?content-type=image%2Fjpeg`,
   },
 ];
-
-const partners = [
-  { src: `${CDN}/v1/670f885de587b3675c7f85ee/a41fb8e7-5f61-4b6d-a27e-2a2395afbfbf/logo-minsante-short2.png`, h: 56 },
-  { src: `${CDN}/v1/670f885de587b3675c7f85ee/33dd1aba-d4da-4af1-9519-16ecf3b62010/activa.png`, h: 44 },
-  { src: `${CDN}/v1/670f885de587b3675c7f85ee/3e23de2d-01e8-4c85-934a-c12dc3fada39/Logo-Afrique-Future-2019-sans-baseline.png`, h: 50 },
-  { src: `${CDN}/v1/670f885de587b3675c7f85ee/6032c253-1b31-40ed-bb2a-b0f5636b4ff4/BakerTilly-Logo.svg.png`, h: 40 },
-  { src: `${CDN}/v1/670f885de587b3675c7f85ee/b3e217bf-adcf-4ecb-8189-854fcf166ef0/SBA-logo.png`, h: 50 },
-  { src: `${CDN}/v1/670f885de587b3675c7f85ee/a8ab74c0-b9ac-4159-8a21-0755aa490bd0/Logo-UCAC.png`, h: 56 },
-  { src: `${CDN}/v1/670f885de587b3675c7f85ee/4e86bf2f-ff25-4a45-8040-26653edee1c2/logo-main.png`, h: 48 },
-];
-
-function StoreButtons({ height = 52 }: { height?: number }) {
-  return (
-    <>
-      <a href={APP_STORE} target="_blank" rel="noopener noreferrer">
-        <img src={APPSTORE_IMG} alt="Télécharger sur l'App Store" style={{ height }} />
-      </a>
-      <a href={PLAY_STORE} target="_blank" rel="noopener noreferrer">
-        <img src={PLAYSTORE_IMG} alt="Disponible sur Google Play" style={{ height }} />
-      </a>
-    </>
-  );
-}
 
 export default function Home() {
   return (
@@ -188,6 +160,25 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ===== TRUST BAR ===== */}
+      <section className="trustbar" aria-label="Institutions partenaires">
+        <div className="trustbar__inner">
+          <p className="trustbar__label">
+            En partenariat avec les institutions de santé de référence
+          </p>
+          <div className="trustbar__logos">
+            {partners.slice(0, 6).map((p, i) => (
+              <img
+                key={i}
+                src={p.src}
+                alt="Institution partenaire de SOSAN"
+                style={{ height: Math.min(p.h, 40) }}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== DOWNLOAD BANNER ===== */}
       <section className="banner">
         <div className="banner__card">
@@ -245,7 +236,7 @@ export default function Home() {
             facilitons la solidarité dans l&apos;administration et le paiement
             des soins de santé.
           </p>
-          <a href="#services" className="btn-green">
+          <a href="/about" className="btn-green">
             En savoir plus →
           </a>
         </div>
@@ -320,13 +311,17 @@ export default function Home() {
                 <span className="plan__dot" style={{ background: "#9AA7B2" }} />
                 <h3>Diaspo Silver</h3>
               </div>
+              <div className="plan__amount">
+                <strong>30€</strong>
+                <span>/ mois</span>
+              </div>
               <div className="plan__price">Couverture 80% des soins courants</div>
               <p className="plan__desc">
                 Une réponse stratégique aux besoins de santé fondamentaux, via un
                 réseau sélectionné d&apos;établissements publics et
                 confessionnels.
               </p>
-              <a href="#contact" className="plan__cta-outline">
+              <a href="/diaspo" className="plan__cta-outline">
                 Choisir Silver
               </a>
             </div>
@@ -343,16 +338,20 @@ export default function Home() {
             </div>
             <div className="plan__body">
               <div className="plan__title-row">
-                <span className="plan__dot" style={{ background: "#F5A623" }} />
+                <span className="plan__dot" style={{ background: "var(--gold)" }} />
                 <h3>Diaspo Gold</h3>
               </div>
-              <div className="plan__price">80% + plafonds rehaussés</div>
+              <div className="plan__amount">
+                <strong>50€</strong>
+                <span>/ mois</span>
+              </div>
+              <div className="plan__price">80% avec plafonds rehaussés</div>
               <p className="plan__desc">
                 Plus de latitude thérapeutique et un accès facilité à un réseau
                 étendu d&apos;hôpitaux publics et privés d&apos;excellence au
                 Cameroun.
               </p>
-              <a href="#contact" className="plan__cta-solid">
+              <a href="/diaspo" className="plan__cta-solid">
                 Choisir Gold
               </a>
             </div>
@@ -366,8 +365,12 @@ export default function Home() {
             />
             <div className="plan__body">
               <div className="plan__title-row">
-                <span className="plan__dot" style={{ background: "#F5A623" }} />
+                <span className="plan__dot" style={{ background: "var(--gold)" }} />
                 <h3>Diaspo Premium</h3>
+              </div>
+              <div className="plan__amount">
+                <strong>100€</strong>
+                <span>/ mois</span>
               </div>
               <div className="plan__price">Sécurité sanitaire intégrale</div>
               <p className="plan__desc">
@@ -375,11 +378,17 @@ export default function Home() {
                 coordination d&apos;évacuation sanitaire (EVASAN) à
                 l&apos;étranger.
               </p>
-              <a href="#contact" className="plan__cta-outline">
+              <a href="/diaspo" className="plan__cta-outline">
                 Choisir Premium
               </a>
             </div>
           </div>
+        </div>
+        <div className="diaspo__more">
+          <a href="/diaspo" className="btn-green">
+            Découvrir Diaspo Support →
+          </a>
+          <span>Tarif adulte, par mois · profils enfant &amp; senior disponibles</span>
         </div>
       </section>
 
@@ -448,7 +457,13 @@ export default function Home() {
         <div className="grid-3 testi__grid">
           {testimonials.map((t) => (
             <div className="testi-card" key={t.name}>
-              <div className="testi-card__stars">★★★★★</div>
+              <div
+                className="testi-card__stars"
+                role="img"
+                aria-label="Note : 5 étoiles sur 5"
+              >
+                ★★★★★
+              </div>
               <p className="testi-card__quote">{t.quote}</p>
               <div className="testi-card__who">
                 <img src={t.img} alt={t.name} />
@@ -488,74 +503,7 @@ export default function Home() {
       </main>
 
       {/* ===== FOOTER ===== */}
-      <footer className="footer">
-        <div className="footer__grid">
-          <div>
-            <div className="footer__brand">
-              <span className="footer__brand-mark">
-                <img src="/logo.webp" alt="SOSAN" />
-              </span>
-              SOSAN
-            </div>
-            <p className="footer__about">
-              Votre solution santé pour tous. La plateforme qui rapproche
-              l&apos;Afrique des soins fiables, rapides et accessibles.
-            </p>
-            <div className="footer__stores">
-              <StoreButtons height={40} />
-            </div>
-          </div>
-          <div>
-            <h4>Navigation</h4>
-            <div className="footer__links">
-              <a href="#about">Qui sommes-nous</a>
-              <a href="#services">Nos services</a>
-              <a href="#diaspo">Diaspo Support</a>
-              <a href="#partners">Partenaires</a>
-            </div>
-          </div>
-          <div>
-            <h4>Ressources</h4>
-            <div className="footer__links">
-              <a href={PARTNER_FORM} target="_blank" rel="noopener noreferrer">
-                Devenir partenaire
-              </a>
-              <span className="footer__link-disabled" aria-disabled="true">
-                Politique de confidentialité
-              </span>
-              <span className="footer__link-disabled" aria-disabled="true">
-                Conditions générales
-              </span>
-              <a href="#contact">Nous contacter</a>
-            </div>
-          </div>
-          <div>
-            <h4>Contact</h4>
-            <div className="footer__contact">
-              <span>
-                <IconMapPin size={16} /> Douala &amp; Yaoundé, Cameroun
-              </span>
-              <span>
-                <IconMail size={16} /> contact@sosanmed.com
-              </span>
-              <div className="footer__social">
-                <span className="footer__link-disabled" aria-disabled="true">
-                  f
-                </span>
-                <span className="footer__link-disabled" aria-disabled="true">
-                  in
-                </span>
-                <span className="footer__link-disabled" aria-disabled="true">
-                  ▶
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="footer__bottom">
-          © 2026 SOSAN Med. Tous droits réservés.
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }

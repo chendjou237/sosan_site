@@ -1,0 +1,201 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-16T00:00:00Z",
+  "title": "Design System: SOSAN",
+  "extensions": {
+    "colorMeta": {
+      "vital-green": {
+        "role": "primary",
+        "displayName": "Vital Green",
+        "canonical": "oklch(70% 0.15 158)",
+        "tonalRamp": [
+          "oklch(25% 0.07 158)",
+          "oklch(35% 0.10 158)",
+          "oklch(45% 0.12 158)",
+          "oklch(55% 0.14 158)",
+          "oklch(65% 0.15 158)",
+          "oklch(72% 0.15 158)",
+          "oklch(85% 0.09 158)",
+          "oklch(95% 0.04 158)"
+        ]
+      },
+      "trust-navy": {
+        "role": "secondary",
+        "displayName": "Trust Navy",
+        "canonical": "oklch(24% 0.04 250)",
+        "tonalRamp": [
+          "oklch(18% 0.03 250)",
+          "oklch(24% 0.04 250)",
+          "oklch(32% 0.04 250)",
+          "oklch(42% 0.04 250)",
+          "oklch(52% 0.03 250)",
+          "oklch(64% 0.03 250)",
+          "oklch(80% 0.02 250)",
+          "oklch(93% 0.01 250)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "oklch(28% 0.03 245)",
+        "tonalRamp": [
+          "oklch(20% 0.03 245)",
+          "oklch(28% 0.03 245)",
+          "oklch(38% 0.03 245)",
+          "oklch(48% 0.03 245)",
+          "oklch(60% 0.02 245)",
+          "oklch(72% 0.02 245)",
+          "oklch(85% 0.01 245)",
+          "oklch(96% 0.005 245)"
+        ]
+      },
+      "mint": {
+        "role": "neutral",
+        "displayName": "Mint",
+        "canonical": "oklch(95% 0.04 158)",
+        "tonalRamp": [
+          "oklch(45% 0.12 158)",
+          "oklch(55% 0.12 158)",
+          "oklch(66% 0.11 158)",
+          "oklch(76% 0.09 158)",
+          "oklch(85% 0.07 158)",
+          "oklch(91% 0.05 158)",
+          "oklch(95% 0.04 158)",
+          "oklch(98% 0.02 158)"
+        ]
+      },
+      "border": {
+        "role": "neutral",
+        "displayName": "Green-Tinted Hairline",
+        "canonical": "oklch(95% 0.01 158)",
+        "tonalRamp": [
+          "oklch(70% 0.03 158)",
+          "oklch(78% 0.02 158)",
+          "oklch(84% 0.02 158)",
+          "oklch(89% 0.015 158)",
+          "oklch(93% 0.01 158)",
+          "oklch(95% 0.01 158)",
+          "oklch(97% 0.008 158)",
+          "oklch(99% 0.004 158)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero H1 only — the single largest promise on the page." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles." },
+      "title": { "displayName": "Title", "purpose": "Card and plan headings." },
+      "body": { "displayName": "Body", "purpose": "All prose; hold measure near 65ch." },
+      "label": { "displayName": "Eyebrow Label", "purpose": "Uppercase tracked section eyebrow — seasoning, not scaffolding." }
+    },
+    "shadows": [
+      { "name": "card-ambient", "value": "0 10px 30px rgba(14, 32, 51, 0.05)", "purpose": "Resting state for service and testimonial cards." },
+      { "name": "card-raised", "value": "0 24px 46px rgba(14, 32, 51, 0.12)", "purpose": "Hover lift, paired with translateY(-8px)." },
+      { "name": "feature-float", "value": "0 30px 70px rgba(14, 32, 51, 0.18)", "purpose": "Hero image frame and the elevated Gold plan." },
+      { "name": "green-cta-glow", "value": "0 14px 30px rgba(15, 179, 106, 0.3)", "purpose": "Under primary green buttons only." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Default easing for state and entrance transitions." },
+      { "name": "press", "value": "transform 120ms cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Button :active press feedback (scale 0.97)." },
+      { "name": "hover-lift", "value": "transform 200ms, box-shadow 200ms", "purpose": "Card and CTA hover elevation." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "640px" },
+      { "name": "tablet", "value": "960px" },
+      { "name": "container", "value": "1200px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The primary CTA — app download / WhatsApp. Vital Green pill with a green-tinted glow.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M4 12a8 8 0 1 1 3.2 6.4L4 20l1.1-3.4A7.96 7.96 0 0 1 4 12z\"/></svg>Discuter sur WhatsApp</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 9px; background: var(--green, #0fb36a); color: #fff; padding: 14px 26px; border: none; border-radius: 999px; font-family: Poppins, system-ui, sans-serif; font-weight: 600; font-size: 15px; box-shadow: 0 14px 30px rgba(15,179,106,0.3); cursor: pointer; transition: transform 0.2s cubic-bezier(0.23,1,0.32,1), box-shadow 0.2s; } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 36px rgba(15,179,106,0.4); } .ds-btn-primary:active { transform: translateY(-1px) scale(0.97); } .ds-btn-primary:focus-visible { outline: 3px solid rgba(15,179,106,0.4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Dark Button",
+      "kind": "button",
+      "refersTo": "button-dark",
+      "description": "Header / secondary action. Trust Navy pill.",
+      "html": "<button class=\"ds-btn-dark\">Télécharger l'app</button>",
+      "css": ".ds-btn-dark { display: inline-flex; align-items: center; gap: 8px; background: var(--navy, #0e2033); color: #fff; padding: 11px 20px; border: none; border-radius: 999px; font-family: Poppins, system-ui, sans-serif; font-weight: 600; font-size: 14px; cursor: pointer; transition: background 0.2s, transform 120ms cubic-bezier(0.23,1,0.32,1); } .ds-btn-dark:hover { background: #16304a; } .ds-btn-dark:active { transform: scale(0.97); } .ds-btn-dark:focus-visible { outline: 3px solid rgba(15,179,106,0.4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Non-featured plan CTA. Navy outline that fills solid on hover.",
+      "html": "<button class=\"ds-btn-outline\">Choisir Silver</button>",
+      "css": ".ds-btn-outline { display: inline-flex; justify-content: center; background: transparent; color: var(--navy, #0e2033); padding: 12px 18px; border: 1.5px solid var(--navy, #0e2033); border-radius: 999px; font-family: Poppins, system-ui, sans-serif; font-weight: 600; font-size: 14px; cursor: pointer; transition: background 0.2s, color 0.2s, transform 120ms cubic-bezier(0.23,1,0.32,1); } .ds-btn-outline:hover { background: var(--navy, #0e2033); color: #fff; } .ds-btn-outline:active { transform: scale(0.97); } .ds-btn-outline:focus-visible { outline: 3px solid rgba(15,179,106,0.4); outline-offset: 2px; }"
+    },
+    {
+      "name": "Service Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "White card with a mint icon tile, hairline border, tinted ambient shadow; lifts on hover.",
+      "html": "<div class=\"ds-card\"><div class=\"ds-card__icon\"><svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"5\" width=\"13\" height=\"10\" rx=\"2\"/><path d=\"M16 9.5 21 7v6l-5-2.5\"/></svg></div><h3 class=\"ds-card__title\">Télé-médecine &amp; rendez-vous</h3><p class=\"ds-card__body\">Consultez à distance des généralistes et spécialistes expérimentés, 24h/24.</p></div>",
+      "css": ".ds-card { background: #fff; border: 1px solid var(--border, #eaf1ee); border-radius: 20px; padding: 28px; box-shadow: 0 10px 30px rgba(14,32,51,0.05); transition: transform 0.25s cubic-bezier(0.23,1,0.32,1), box-shadow 0.25s; } .ds-card:hover { transform: translateY(-8px); box-shadow: 0 24px 46px rgba(14,32,51,0.12); } .ds-card__icon { width: 56px; height: 56px; border-radius: 16px; background: var(--mint, #e4f7ec); color: #0a8f54; display: flex; align-items: center; justify-content: center; } .ds-card__title { font-family: Poppins, system-ui, sans-serif; font-weight: 700; font-size: 18px; color: var(--green, #0fb36a); margin: 20px 0 10px; line-height: 1.25; } .ds-card__body { font-family: Inter, system-ui, sans-serif; font-size: 14.5px; line-height: 1.6; color: #5b6b7b; margin: 0; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Contact-form field. Hairline border, green focus glow.",
+      "html": "<input class=\"ds-input\" type=\"email\" placeholder=\"E-mail\" aria-label=\"E-mail\">",
+      "css": ".ds-input { width: 100%; border: 1px solid #dce7e1; border-radius: 12px; padding: 13px 15px; font-family: Inter, system-ui, sans-serif; font-size: 14px; color: #16283a; outline: none; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input::placeholder { color: #5b6b7b; } .ds-input:focus { border-color: var(--green, #0fb36a); box-shadow: 0 0 0 3px rgba(15,179,106,0.12); }"
+    },
+    {
+      "name": "Trust Badge",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Signature hero badge — white pill with a pulsing Vital-Green dot; the first, smallest promise on the page.",
+      "html": "<span class=\"ds-badge\"><span class=\"ds-badge__dot\"></span>Santé fiable, rapide &amp; accessible</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; gap: 8px; background: #fff; border: 1px solid #d6ecdf; color: #0a8f54; padding: 8px 15px; border-radius: 999px; font-family: Poppins, system-ui, sans-serif; font-size: 13px; font-weight: 600; box-shadow: 0 6px 18px rgba(15,179,106,0.1); } .ds-badge__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green, #0fb36a); animation: ds-pulse 2s infinite; } @keyframes ds-pulse { 0% { box-shadow: 0 0 0 0 rgba(15,179,106,0.45); } 70% { box-shadow: 0 0 0 12px rgba(15,179,106,0); } 100% { box-shadow: 0 0 0 0 rgba(15,179,106,0); } } @media (prefers-reduced-motion: reduce) { .ds-badge__dot { animation: none; } }"
+    },
+    {
+      "name": "Nav Link",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Header navigation link — grey-navy default, Vital Green on hover.",
+      "html": "<a class=\"ds-nav-link\" href=\"#\">Services</a>",
+      "css": ".ds-nav-link { font-family: Inter, system-ui, sans-serif; font-size: 15px; font-weight: 500; color: #3d4c5a; text-decoration: none; transition: color 0.2s; } .ds-nav-link:hover { color: var(--green, #0fb36a); } .ds-nav-link:focus-visible { outline: 2px solid rgba(15,179,106,0.5); outline-offset: 3px; border-radius: 4px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Family Bridge",
+    "overview": "SOSAN's visual system exists to connect two shores — a patient in Cameroon and a relative sending support from abroad — and make both feel equally at home on arrival. Vital Green is health and action; Trust Navy is the steady authority underneath. Warmth comes from whitespace, soft rounded surfaces, and a human voice — never from a warm-tinted background. The register is brand: the page walks a visitor up the belief ladder (legitimate → relevant → transparent → easy) before it asks for the install, so the system is built for reassurance first — low density, confident-not-shouting headings, proof given room to breathe, and disciplined motion that respects reduced-motion.",
+    "keyCharacteristics": [
+      "Clean white ground; green and navy do the talking.",
+      "Two-audience equality baked into copy and imagery (patient + diaspora).",
+      "Soft, tactile, rounded surfaces — approachable, never sterile.",
+      "Tinted (never pure-black) shadows.",
+      "Trust before pitch: proof and transparency lead, the CTA follows."
+    ],
+    "rules": [
+      { "name": "The Vital-Green Restraint Rule", "body": "Green is action and health, not wallpaper. It carries CTAs, accents, icon marks, and confirmations — never a large reading surface. Saturated grounds are Trust Navy, not green.", "section": "colors" },
+      { "name": "The Clean-Ground Rule", "body": "The body background is true white (#ffffff), never a warm cream/sand/paper tint. Warmth comes from voice, spacing, and imagery.", "section": "colors" },
+      { "name": "The Two-Job Rule", "body": "Poppins never sets a paragraph; Inter never sets a display heading. The contrast between the families is the hierarchy.", "section": "typography" },
+      { "name": "The Eyebrow-Budget Rule", "body": "The uppercase tracked eyebrow is seasoning, not scaffolding. Name a section's theme with it; never reflex it above every block.", "section": "typography" },
+      { "name": "The Tinted-Shadow Rule", "body": "Every shadow is tinted navy for neutral surfaces or green under green CTAs. Pure-black shadows are prohibited.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do lead every section with proof or transparency before the ask — walk the belief ladder, never pitch first.",
+      "Do keep body text at Ink (#16283a) or Muted (#4c5b6a) for ≥4.5:1 on white; bump toward Ink whenever contrast is close.",
+      "Do reserve full-pill (999px) for buttons, tags, and badges; keep cards at 16–26px.",
+      "Do tint every shadow navy or green — never pure black.",
+      "Do address the patient-at-home and the relative-abroad as equals in copy and imagery.",
+      "Do keep the ground true white; carry warmth through voice, spacing, and photography."
+    ],
+    "donts": [
+      "Don't drift toward a cold, corporate hospital or insurance look — sterile stock and institutional blandness kill trust here.",
+      "Don't adopt a flashy startup / crypto aesthetic — no neon gradients, no hype.",
+      "Don't build a cluttered, ad-heavy portal — no dense, banner-stuffed layouts.",
+      "Don't ship the generic SaaS gradient template that could belong to any product.",
+      "Don't use gradient text or side-stripe borders (colored border-left/right > 1px) anywhere.",
+      "Don't over-round: no card, section, or input past 26px radius.",
+      "Don't let Vital Green fill a large reading surface — it is an accent and action color.",
+      "Don't set body-length text in Muted Faint (#7a8896); it fails 4.5:1 and is for decorative meta only."
+    ]
+  }
+}

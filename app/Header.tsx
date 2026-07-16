@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
-  { href: "#about", label: "Qui sommes-nous" },
-  { href: "#services", label: "Services" },
-  { href: "#diaspo", label: "Diaspo Support" },
-  { href: "#partners", label: "Partenaires" },
-  { href: "#contact", label: "Contact" },
+  { href: "/about", label: "Qui sommes-nous" },
+  { href: "/#services", label: "Services" },
+  { href: "/diaspo", label: "Diaspo Support" },
+  { href: "/#partners", label: "Partenaires" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -24,7 +24,7 @@ export default function Header() {
     <>
       <header className="header">
       <div className="header__inner">
-        <a href="#top" className="logo" onClick={() => setOpen(false)}>
+        <a href="/" className="logo" onClick={() => setOpen(false)}>
           <span className="logo__mark">
             <img src="/logo.webp" alt="SOSAN" />
           </span>
