@@ -128,3 +128,71 @@ export function IconCheckCircle({ className, size = 24 }: IconProps) {
     </svg>
   );
 }
+
+export function IconHospital({ className, size = 24 }: IconProps) {
+  return (
+    <svg className={className} width={size} height={size} {...base}>
+      <rect x="4" y="3.5" width="16" height="17.5" rx="1.5" />
+      <line x1="2.5" y1="21" x2="21.5" y2="21" />
+      <path d="M12 6.5v4M10 8.5h4" />
+      <path d="M10.5 21v-3a1.5 1.5 0 0 1 3 0v3" />
+    </svg>
+  );
+}
+
+export function IconPill({ className, size = 24 }: IconProps) {
+  return (
+    <svg className={className} width={size} height={size} {...base}>
+      <rect x="2.8" y="8" width="18.4" height="8" rx="4" transform="rotate(-45 12 12)" />
+      <line x1="8.5" y1="15.5" x2="15.5" y2="8.5" />
+    </svg>
+  );
+}
+
+export function IconHeartHand({ className, size = 24 }: IconProps) {
+  return (
+    <svg className={className} width={size} height={size} {...base}>
+      <path d="M11.5 6.9a2.3 2.3 0 0 0-3.3 0 2.3 2.3 0 0 0 0 3.3l3.3 3.2 3.3-3.2a2.3 2.3 0 0 0 0-3.3 2.3 2.3 0 0 0-3.3 0z" />
+      <path d="M3.5 14.5v2.5a3 3 0 0 0 3 3h7a3 3 0 0 0 2.1-.9L20.5 15.5" />
+    </svg>
+  );
+}
+
+export function IconWallet({ className, size = 24 }: IconProps) {
+  return (
+    <svg className={className} width={size} height={size} {...base}>
+      <rect x="3" y="6" width="18" height="13" rx="2.5" />
+      <path d="M3 6.5V6a2 2 0 0 1 2-2h11" />
+      <path d="M16 10.5h3a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-3a1.5 1.5 0 0 1 0-3z" />
+    </svg>
+  );
+}
+
+export function IconFile({ className, size = 24 }: IconProps) {
+  return (
+    <svg className={className} width={size} height={size} {...base}>
+      <path d="M6 3h7l5 5v12a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z" />
+      <path d="M13 3v5h5" />
+      <path d="M8.5 13h7M8.5 16.5h7M8.5 9.5h2.5" />
+    </svg>
+  );
+}
+
+export function IconSparkles({ className, size = 24 }: IconProps) {
+  return (
+    <svg className={className} width={size} height={size} {...base}>
+      <path d="M11 3l1.7 4.3L17 9l-4.3 1.7L11 15l-1.7-4.3L5 9l4.3-1.7z" />
+      <path d="M17.5 14l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z" />
+    </svg>
+  );
+}
+
+export function IconNewspaper({ className, size = 24 }: IconProps) {
+  return (
+    <svg className={className} width={size} height={size} {...base}>
+      <path d="M4 5.5h13a1 1 0 0 1 1 1V19a1 1 0 0 1-1 1H5a2 2 0 0 1-2-2V7" />
+      <path d="M18 8h2a1 1 0 0 1 1 1v9a2 2 0 0 1-2 2" />
+      <path d="M7 9h7M7 12.5h7M7 16h4" />
+    </svg>
+  );
+}

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Header from "../Header";
 import Footer from "../Footer";
 import StoreButtons from "../StoreButtons";
-import { CDN, partners } from "../constants";
+import { partners } from "../constants";
+import { resolveSrc, planPhotos, diaspoHero } from "../assets";
 import {
   IconCheckCircle,
   IconUsers,
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 
 const TEL_FR = "+33695442982";
 const TEL_CM = "+237659816380";
-const HERO_IMG = `${CDN}/670f885de587b3675c7f85ee/baf5f793-c639-481a-9fd9-53f86291219e/19507.jpg.jpeg?content-type=image%2Fjpeg`;
+const HERO_IMG = resolveSrc(diaspoHero) ?? undefined;
 
 const prestations = [
   "Consultations et examens médicaux",
@@ -206,11 +207,20 @@ export default function Diaspo() {
               </p>
             </div>
             <div className="grid-3">
-              {formules.map((f) => (
+              {formules.map((f) => {
+                const tier = f.name.replace("Diaspo ", "").toLowerCase();
+                const photo = planPhotos[tier];
+                const src = photo ? resolveSrc(photo) : null;
+                return (
                 <div
                   className={`plan${f.featured ? " plan--gold" : ""}`}
                   key={f.name}
                 >
+                  {src && (
+                    <div className="plan__media">
+                      <img src={src} alt={f.name} loading="lazy" />
+                    </div>
+                  )}
                   <div className="plan__body">
                     <div className="plan__title-row">
                       <span className="plan__dot" style={{ background: f.dot }} />
@@ -237,7 +247,8 @@ export default function Diaspo() {
                     </a>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </section>

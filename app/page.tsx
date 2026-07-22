@@ -2,7 +2,17 @@ import ContactForm from "./ContactForm";
 import Header from "./Header";
 import Footer from "./Footer";
 import StoreButtons from "./StoreButtons";
-import { CDN, PARTNER_FORM, partners } from "./constants";
+import Reveal from "./Reveal";
+import Mockup from "./Mockup";
+import { PARTNER_FORM, partners } from "./constants";
+import {
+  resolveSrc,
+  planPhotos,
+  homeAbout,
+  testimonialAvatars,
+  newsCover,
+} from "./assets";
+import { latestPosts, categoryMeta, formatDate } from "./actualites/data";
 import {
   IconVideoCall,
   IconCreditCard,
@@ -10,7 +20,7 @@ import {
   IconShield,
   IconMessageCircle,
   IconFlask,
-  IconCalendarCheck,
+  IconCheckCircle,
   IconMapPin,
   IconGlobe,
 } from "./icons";
@@ -69,25 +79,28 @@ const testimonials = [
       "« Depuis Paris, j'ai pu organiser et régler les consultations de ma mère à Douala en toute transparence. Je vois exactement où va chaque franc — c'est un vrai soulagement. »",
     name: "Aïcha Mbarga",
     role: "Diaspora · Paris",
-    img: `${CDN}/670f885de587b3675c7f85ee/a4d87498-101f-406f-b13d-a61a6504b7e2/19641.jpg?content-type=image%2Fjpeg`,
+    avatar: "aicha-mbarga",
   },
   {
     quote:
       "« J'ai consulté un généraliste depuis chez moi, sans faire la queue ni me déplacer. Le médecin a pris le temps de tout m'expliquer. Simple, rapide et rassurant. »",
     name: "Emmanuel Fotso",
     role: "Patient à Yaoundé",
-    img: `${CDN}/670f885de587b3675c7f85ee/8aa4e46b-ec61-4850-b62c-3bfdc726ddf6/146757.jpg?content-type=image%2Fjpeg`,
+    avatar: "emmanuel-fotso",
   },
   {
     quote:
       "« Fini les frais surprises : les tarifs sont clairs avant chaque acte et l'équipe m'a accompagnée à chaque étape. Je le recommande sans hésiter à mes proches. »",
     name: "Nadège Etoundi",
     role: "Patiente à Douala",
-    img: `${CDN}/670f885de587b3675c7f85ee/50ced21f-0bae-4bb3-9b42-de3189f21207/128895.jpg?content-type=image%2Fjpeg`,
+    avatar: "nadege-etoundi",
   },
 ];
 
 export default function Home() {
+  const featured = services[0];
+  const FeaturedIcon = featured.icon;
+
   return (
     <>
       {/* ===== HEADER ===== */}
@@ -105,56 +118,58 @@ export default function Home() {
               Santé fiable, rapide &amp; accessible
             </span>
             <h1>
-              Votre solution
-              <br />
-              <span>santé</span> pour tous
+              Des soins de santé fiables, <span>où que vous soyez.</span>
             </h1>
             <p className="hero__lead">
-              SOSAN connecte l&apos;Afrique à des médecins, laboratoires et
-              solutions de couverture santé. Consultez, payez en toute
-              transparence et protégez vos proches — où que vous soyez.
+              Consultez des médecins, payez en toute transparence et protégez
+              vos proches au Cameroun — sur place comme depuis la diaspora, dans
+              une seule application.
             </p>
-            <div className="store-row">
-              <StoreButtons />
+            <div className="hero__cta">
+              <div className="store-row">
+                <StoreButtons />
+              </div>
+              <a href="/diaspo" className="hero__secondary">
+                Découvrir les formules Diaspo <span aria-hidden="true">→</span>
+              </a>
             </div>
+            <p className="hero__trust">
+              <IconShield size={15} />
+              Déjà sur l&apos;App Store &amp; Google Play · en partenariat avec
+              le Ministère de la Santé
+            </p>
             <div className="stats">
               <div>
                 <div className="stat__num">24/7</div>
-                <div className="stat__label">Consultations</div>
+                <div className="stat__label">Consultations en ligne</div>
               </div>
               <div className="stat__sep" />
               <div>
                 <div className="stat__num">80%</div>
-                <div className="stat__label">Frais couverts</div>
+                <div className="stat__label">des soins couverts</div>
               </div>
               <div className="stat__sep" />
               <div>
-                <div className="stat__num">🇨🇲 +</div>
-                <div className="stat__label">Diaspora incluse</div>
+                <div className="stat__num">0</div>
+                <div className="stat__label">frais caché</div>
               </div>
             </div>
           </div>
           <div className="hero__media">
             <div className="hero__frame">
               <img
-                src={`${CDN}/v1/670f885de587b3675c7f85ee/708fba6a-a22e-4d63-9d6c-c3efac732b06/2147767273.jpg.jpeg`}
-                alt="Soignant et patient"
+                src="/hero.png"
+                alt="Dr. Jean Bahebeck, ambassadeur SOSAN"
               />
             </div>
-            <div className="float-card">
+            <div className="float-card float-card--amb">
               <span className="float-card__icon">
-                <IconCalendarCheck size={20} />
+                <IconCheckCircle size={22} />
               </span>
               <div>
-                <div className="float-card__title">Rendez-vous confirmé</div>
-                <div className="float-card__sub">
-                  Dr. généraliste · aujourd&apos;hui
-                </div>
+                <div className="float-card__title">Dr. Jean Bahebeck</div>
+                <div className="float-card__sub">Ambassadeur SOSAN</div>
               </div>
-            </div>
-            <div className="float-pay">
-              <div className="float-pay__label">Paiement sécurisé</div>
-              <div className="float-pay__val">Transparent · Tracé</div>
             </div>
           </div>
         </div>
@@ -216,13 +231,20 @@ export default function Home() {
 
       {/* ===== ABOUT ===== */}
       <section id="about" className="about">
-        <div className="about__media">
+        <Reveal className="about__media">
           <img
-            src={`${CDN}/v1/670f885de587b3675c7f85ee/1ecca722-1d4c-4af1-ab58-1c59d0761f7b/sosan-application-mobile-de-sant%C3%A9-en-Afrique.png`}
+            src={resolveSrc(homeAbout) ?? undefined}
             alt="Application SOSAN"
           />
-        </div>
-        <div>
+          <div className="about__float">
+            <span className="about__float-dot" />
+            <div>
+              <div className="about__float-title">Consultations en ligne</div>
+              <div className="about__float-sub">Disponible 24h/24, 7j/7</div>
+            </div>
+          </div>
+        </Reveal>
+        <Reveal className="about__copy" delay={120}>
           <span className="eyebrow">QUI SOMMES-NOUS</span>
           <h2>SOSAN facilite votre accès aux soins</h2>
           <p>
@@ -236,55 +258,84 @@ export default function Home() {
             facilitons la solidarité dans l&apos;administration et le paiement
             des soins de santé.
           </p>
+          <ul className="about__proof">
+            <li>
+              <span className="about__proof-ic">
+                <IconVideoCall size={16} />
+              </span>
+              Télé-médecine &amp; rendez-vous, 24h/24
+            </li>
+            <li>
+              <span className="about__proof-ic">
+                <IconCreditCard size={16} />
+              </span>
+              Paiements tracés, zéro frais caché
+            </li>
+            <li>
+              <span className="about__proof-ic">
+                <IconGlobe size={16} />
+              </span>
+              Au Cameroun et pour la diaspora
+            </li>
+          </ul>
           <a href="/about" className="btn-green">
             En savoir plus →
           </a>
-        </div>
+        </Reveal>
       </section>
 
       {/* ===== SERVICES ===== */}
       <section id="services" className="services">
         <div className="wrap">
-          <div className="section-center">
+          <Reveal className="section-center">
             <h2 className="font-poppins">Nos Services</h2>
             <div className="rule" />
             <p>
               Une gamme de services conçus pour rendre les soins plus simples,
               rapides et accessibles.
             </p>
-          </div>
+          </Reveal>
           <div className="services-grid">
-            {services.map((s, i) => {
+            <Reveal className="service-card service-card--featured">
+              <div className="service-card__icon service-card__icon--lg">
+                <FeaturedIcon size={34} />
+              </div>
+              <div className="service-card__body">
+                <span className="service-card__tag">Le plus utilisé</span>
+                <h3 className="font-poppins">{featured.title}</h3>
+                <p>{featured.desc}</p>
+              </div>
+              <a href="#contact" className="btn-green service-card__cta">
+                Télécharger l&apos;app →
+              </a>
+            </Reveal>
+            {services.slice(1).map((s, i) => {
               const Icon = s.icon;
-              if (i === 0) {
-                return (
-                  <div className="service-card service-card--featured" key={s.title}>
-                    <div className="service-card__icon">
-                      <Icon size={30} />
-                    </div>
-                    <div className="service-card__body">
-                      <h3 className="font-poppins">{s.title}</h3>
-                      <p>{s.desc}</p>
-                    </div>
-                    <a href="#contact" className="chip-dark">
-                      Télécharger
-                    </a>
-                  </div>
-                );
-              }
               return (
-                <div className="service-card" key={s.title}>
+                <Reveal
+                  as="a"
+                  href="#contact"
+                  className="service-card"
+                  key={s.title}
+                  delay={i * 90}
+                >
                   <div className="service-card__icon">
                     <Icon size={26} />
                   </div>
                   <h3 className="font-poppins">{s.title}</h3>
                   <p>{s.desc}</p>
-                  <a href="#contact" className="chip-dark">
-                    Télécharger
-                  </a>
-                </div>
+                  <span className="service-card__link">
+                    Télécharger <span aria-hidden="true">→</span>
+                  </span>
+                </Reveal>
               );
             })}
+          </div>
+          <div className="services-more">
+            <a href="/services" className="btn-green">
+              Découvrir tous nos services →
+            </a>
+            <span>Dix services réunis dans une seule application</span>
           </div>
         </div>
       </section>
@@ -303,8 +354,9 @@ export default function Home() {
           {/* Silver */}
           <div className="plan">
             <img
-              src={`${CDN}/670f885de587b3675c7f85ee/b3b1675e-646c-48d5-befa-d3e1aed8b4a6/74423.jpg.jpeg?content-type=image%2Fjpeg`}
+              src={resolveSrc(planPhotos.silver) ?? undefined}
               alt="Diaspo Silver"
+              loading="lazy"
             />
             <div className="plan__body">
               <div className="plan__title-row">
@@ -331,8 +383,9 @@ export default function Home() {
           <div className="plan plan--gold">
             <div className="plan__media">
               <img
-                src={`${CDN}/670f885de587b3675c7f85ee/baf5f793-c639-481a-9fd9-53f86291219e/19507.jpg.jpeg?content-type=image%2Fjpeg`}
+                src={resolveSrc(planPhotos.gold) ?? undefined}
                 alt="Diaspo Gold"
+                loading="lazy"
               />
               <span className="plan__tag">POPULAIRE</span>
             </div>
@@ -360,8 +413,9 @@ export default function Home() {
           {/* Premium */}
           <div className="plan">
             <img
-              src={`${CDN}/670f885de587b3675c7f85ee/e2b8c576-42a3-486e-b799-68fadadd7aa7/16515+%282%29.jpg.jpeg?content-type=image%2Fjpeg`}
+              src={resolveSrc(planPhotos.premium) ?? undefined}
               alt="Diaspo Premium"
+              loading="lazy"
             />
             <div className="plan__body">
               <div className="plan__title-row">
@@ -397,7 +451,7 @@ export default function Home() {
         <div className="why__dots" />
         <div className="why__inner">
           <div className="why__grid">
-            <div>
+            <Reveal>
               <span className="why__eyebrow">POURQUOI NOUS REJOINDRE</span>
               <h2>Développez votre activité avec SOSAN</h2>
               <p className="why__lead">
@@ -412,14 +466,14 @@ export default function Home() {
               >
                 Rejoignez-nous →
               </a>
-            </div>
+            </Reveal>
             <div className="why__cards">
-              {whyCards.map((c) => (
-                <div className="why-card" key={c.n}>
+              {whyCards.map((c, i) => (
+                <Reveal className="why-card" key={c.n} delay={i * 90}>
                   <div className="why-card__n">{c.n}</div>
                   <h3>{c.title}</h3>
                   <p>{c.desc}</p>
-                </div>
+                </Reveal>
               ))}
             </div>
           </div>
@@ -466,7 +520,11 @@ export default function Home() {
               </div>
               <p className="testi-card__quote">{t.quote}</p>
               <div className="testi-card__who">
-                <img src={t.img} alt={t.name} />
+                <img
+                  src={resolveSrc(testimonialAvatars[t.avatar]) ?? undefined}
+                  alt={t.name}
+                  loading="lazy"
+                />
                 <div>
                   <div className="testi-card__name">{t.name}</div>
                   <div className="testi-card__role">{t.role}</div>
@@ -474,6 +532,56 @@ export default function Home() {
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* ===== ACTUALITÉS ===== */}
+      <section id="actualites" className="news">
+        <div className="wrap">
+          <div className="news__head">
+            <div>
+              <span className="eyebrow">ACTUALITÉS &amp; COLLABORATIONS</span>
+              <h2>La santé en mouvement</h2>
+              <p>Nos annonces, événements et partenariats les plus récents.</p>
+            </div>
+            <a href="/actualites" className="news-more">
+              Voir toutes les actualités <span aria-hidden="true">→</span>
+            </a>
+          </div>
+          <div className="grid-3">
+            {latestPosts.map((post, i) => {
+              const meta = categoryMeta[post.category];
+              return (
+                <Reveal
+                  as="a"
+                  href="/actualites"
+                  className="news-card"
+                  key={post.slug}
+                  delay={i * 90}
+                >
+                  <Mockup
+                    asset={newsCover(post.slug, post.title)}
+                    variant="photo"
+                    className="news-card__media"
+                  />
+                  <div className="news-card__body">
+                    <div className="news-card__meta">
+                      <span
+                        className={`news-card__cat news-card__cat--${meta.mod}`}
+                      >
+                        {meta.label}
+                      </span>
+                      <span className="news-card__date">
+                        {formatDate(post.date)}
+                      </span>
+                    </div>
+                    <h3>{post.title}</h3>
+                    <p className="news-card__excerpt">{post.excerpt}</p>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
       </section>
 

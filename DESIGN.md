@@ -6,6 +6,11 @@ colors:
   green-deep: "#0a8f54"
   green-text: "#08804a"
   green-bright: "#38d98a"
+  sky-blue: "#1c9fdf"
+  blue-deep: "#167fb8"
+  blue-text: "#0b6b9e"
+  blue-bright: "#6ec5f0"
+  brand-gradient: "linear-gradient(135deg, #1c9fdf 0%, #0fb36a 100%)"
   tier-gold: "#f5a623"
   trust-navy: "#0e2033"
   navy-deep: "#0b1a29"
@@ -120,6 +125,16 @@ A confident two-color identity — health-green and authority-navy — on a clea
 - **Green Text** (#08804a): The readable green (5.0:1 on white). Every green *word* — section eyebrows, service-card titles, plan prices, the hero "santé" — uses this, not Vital Green.
 - **Green Deep** (#0a8f54): Pressed/hover depth for green surfaces and success-panel accents.
 - **Green Bright** (#38d98a): Accent-on-dark — eyebrows, prices, and numeric badges sitting on Trust Navy surfaces (9.0:1 on navy).
+
+### Brand Blue (co-primary)
+The SOSAN logo is a **blue→green diagonal gradient**, so the identity is two hues, not one. Green alone reads as incomplete branding; blue is a full co-primary that carries *reach and distance* (the diaspora, "wherever you are"), while green keeps *health and action*.
+- **Sky Blue** (#1c9fdf): The blue signature — a fill/graphic color for the brand gradient and blue markers. Like Vital Green, it is not a text color on white (2.97:1); white text on it is only used on the gradient button, matching the existing green-button baseline.
+- **Blue Text** (#0b6b9e): The readable blue on white (5.8:1). Every blue *word* — the hero accent "où que vous soyez", Diaspo eyebrows and plan prices — uses this, never Sky Blue.
+- **Blue Deep** (#167fb8): Pressed/hover depth and blue icon glyphs on tinted tiles.
+- **Blue Bright** (#6ec5f0): Accent-on-dark — Diaspo kickers and plan prices on Trust Navy (8.6:1 on navy). The logo's own light blue; also the light end of the soft gradient.
+
+### The Brand Gradient
+`linear-gradient(135deg, #1c9fdf → #0fb36a)` — the logo's exact blue-to-green diagonal. It is the brand *signature*, reserved for a small set of deliberate surfaces: primary buttons (`.btn-green`, `.plan__cta-solid`), the section rule under headings, the "POPULAIRE" plan tag, and the "why join" number tiles (soft variant). **Never gradient text** and never a large reading surface — it marks brand moments, it is not wallpaper.
 
 ### Tertiary
 - **Tier Gold** (#f5a623): The single non-brand accent, used sparingly for the Gold/Premium plan dots and the testimonial star rating. A fill/marker color only — never text (2.03:1); any rating it conveys must also carry a text label.

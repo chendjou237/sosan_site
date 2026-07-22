@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "../Header";
 import Footer from "../Footer";
 import ContactForm from "../ContactForm";
-import { CDN } from "../constants";
+import { resolveSrc, aboutGallery, aboutVision } from "../assets";
 import { IconCheckCircle, IconMapPin, IconGlobe } from "../icons";
 
 export const metadata: Metadata = {
@@ -11,13 +11,8 @@ export const metadata: Metadata = {
     "Née de l'ambition d'améliorer l'accès aux soins en Afrique, SOSAN facilite la télé-médecine, le paiement transparent et la solidarité de la diaspora. Découvrez notre vision, nos valeurs et les offres Diaspo Support.",
 };
 
-const AP = [
-  `${CDN}/v1/670f885de587b3675c7f85ee/92306aec-38f7-434e-abb0-1ee3840eed74/ap1.png`,
-  `${CDN}/v1/670f885de587b3675c7f85ee/a08d3e76-4f0c-424e-8a9e-be012dad8b38/ap2.png`,
-  `${CDN}/v1/670f885de587b3675c7f85ee/2dec504e-ee20-46ff-84e6-764fae3e6ecd/ap3.png`,
-  `${CDN}/v1/670f885de587b3675c7f85ee/c9809d40-655c-43b9-8a7a-288954fd9ca7/ap4.png`,
-];
-const VISION_IMG = `${CDN}/v1/670f885de587b3675c7f85ee/a2eb975b-5034-46ca-8559-a4213a7de088/sosan-rend-accessible-les-soins-de-sante%CC%81-en-Afrique.png`;
+const AP = aboutGallery.map((a) => resolveSrc(a) ?? undefined);
+const VISION_IMG = resolveSrc(aboutVision) ?? undefined;
 
 const values = [
   { term: "Accès aux soins pour tous", gloss: "Le cœur de notre mission, sans exception." },
