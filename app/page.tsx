@@ -159,7 +159,7 @@ export default function Home() {
             <div className="hero__frame">
               <img
                 src="/hero.png"
-                alt="Dr. Jean Bahebeck, ambassadeur SOSAN"
+                alt="Pr. Jean Bahebeck, ambassadeur SOSAN"
               />
             </div>
             <div className="float-card float-card--amb">

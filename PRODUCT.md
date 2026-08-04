@@ -48,6 +48,7 @@ Transparency as a feature — make "traceable payments, no hidden fees, clear co
 
 Lead to the app, but give the unready a real second door — the download is the destination, yet visitors not ready to install must find a genuine next step (Diaspo plans, WhatsApp assistant) rather than a dead end.
 
-## Accessibility & Inclusion
 
+## Accessibility & Inclusion
 Target WCAG AA: sufficient color contrast for body and placeholder text, visible keyboard focus states, and semantic markup throughout. The audience skews toward variable connectivity and a wide device range, so keep the experience fast and legible on lower-end phones. Reduced-motion handling is already implemented in CSS (`prefers-reduced-motion`), neutralizing the decorative loops and entrance animations.
+
