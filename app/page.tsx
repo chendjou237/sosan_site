@@ -77,23 +77,23 @@ const testimonials = [
   {
     quote:
       "« Depuis Paris, j'ai pu organiser et régler les consultations de ma mère à Douala en toute transparence. Je vois exactement où va chaque franc — c'est un vrai soulagement. »",
-    name: "Aïcha Mbarga",
-    role: "Diaspora · Paris",
-    avatar: "aicha-mbarga",
-  },
-  {
-    quote:
-      "« J'ai consulté un généraliste depuis chez moi, sans faire la queue ni me déplacer. Le médecin a pris le temps de tout m'expliquer. Simple, rapide et rassurant. »",
     name: "Emmanuel Fotso",
-    role: "Patient à Yaoundé",
+    role: "Diaspora · Paris",
     avatar: "emmanuel-fotso",
   },
   {
     quote:
-      "« Fini les frais surprises : les tarifs sont clairs avant chaque acte et l'équipe m'a accompagnée à chaque étape. Je le recommande sans hésiter à mes proches. »",
-    name: "Nadège Etoundi",
-    role: "Patiente à Douala",
-    avatar: "nadege-etoundi",
+      "« J'ai consulté un généraliste depuis chez moi, sans faire la queue ni me déplacer. Le médecin a pris le temps de tout m'expliquer. Simple, rapide et rassurant. »",
+    name: "Aïcha Mbarga",
+    role: "Patiente à Yaoundé",
+    avatar: "aicha-mbarga",
+  },
+  {
+    quote:
+      "« Fini les frais surprises : les tarifs sont clairs avant chaque acte et l'équipe m'a accompagné à chaque étape. Je le recommande sans hésiter à mes proches. »",
+    name: "Hervé Etoundi",
+    role: "Patient à Douala",
+    avatar: "herve-etoundi",
   },
 ];
 

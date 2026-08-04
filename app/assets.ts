@@ -139,9 +139,9 @@ export const diaspoHero: Asset = {
 
 /** Testimonial avatars. Fallback = legacy CDN avatars. */
 export const testimonialAvatars: Record<string, Asset> = {
-  "aicha-mbarga": { file: "/app/testimonials/aicha-mbarga.jpg", label: "Aïcha Mbarga", variant: "photo", fallback: `${CDN}/670f885de587b3675c7f85ee/a4d87498-101f-406f-b13d-a61a6504b7e2/19641.jpg?content-type=image%2Fjpeg` },
-  "emmanuel-fotso": { file: "/app/testimonials/emmanuel-fotso.jpg", label: "Emmanuel Fotso", variant: "photo", fallback: `${CDN}/670f885de587b3675c7f85ee/8aa4e46b-ec61-4850-b62c-3bfdc726ddf6/146757.jpg?content-type=image%2Fjpeg` },
-  "nadege-etoundi": { file: "/app/testimonials/nadege-etoundi.jpg", label: "Nadège Etoundi", variant: "photo", fallback: `${CDN}/670f885de587b3675c7f85ee/50ced21f-0bae-4bb3-9b42-de3189f21207/128895.jpg?content-type=image%2Fjpeg` },
+  "emmanuel-fotso": { file: "/app/testimonials/emmanuel-fotso.jpg", label: "Emmanuel Fotso", variant: "photo", fallback: `${CDN}/670f885de587b3675c7f85ee/a4d87498-101f-406f-b13d-a61a6504b7e2/19641.jpg?content-type=image%2Fjpeg` },
+  "aicha-mbarga": { file: "/app/testimonials/aicha-mbarga.jpg", label: "Aïcha Mbarga", variant: "photo", fallback: `${CDN}/670f885de587b3675c7f85ee/8aa4e46b-ec61-4850-b62c-3bfdc726ddf6/146757.jpg?content-type=image%2Fjpeg` },
+  "herve-etoundi": { file: "/app/testimonials/herve-etoundi.jpg", label: "Hervé Etoundi", variant: "photo", fallback: `${CDN}/670f885de587b3675c7f85ee/50ced21f-0bae-4bb3-9b42-de3189f21207/128895.jpg?content-type=image%2Fjpeg` },
 };
 
 /** News/Actualités cover image for a post slug (net-new — placeholder until supplied). */
