@@ -1,0 +1,46 @@
+# SOSAN — static Next.js export on Hostinger (LiteSpeed/Apache).
+#
+# Copied into out/ by scripts/postbuild.mjs and published to public_html/ via
+# the `deploy` branch. Edit it here, never on the server — a deploy overwrites it.
+
+Options -Indexes -MultiViews
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# Hostinger's Git deploy leaves .git/ inside public_html — never serve it.
+RedirectMatch 404 /\.git
+RedirectMatch 404 /\.github
+
+# Canonical origin: HTTPS, non-www.
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml text/plain
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Next hashes these filenames — safe to cache forever.
+  <FilesMatch "\.(js|css|woff2)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+  # HTML and the .txt RSC payloads are NOT hashed — they must revalidate, or a
+  # deploy won't reach repeat visitors.
+  <FilesMatch "\.(html|txt)$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresDefault "access plus 1 hour"
+  <FilesMatch "\.(png|jpe?g|webp|avif|svg|ico)$">
+    ExpiresDefault "access plus 30 days"
+  </FilesMatch>
+</IfModule>
