@@ -12,4 +12,4 @@
 :HL["/logo.webp","image"]
 :HL["https://images.squarespace-cdn.com/content/v1/670f885de587b3675c7f85ee/02d24ac5-221d-4f7c-9191-c84ae189f97f/appstore.png","image"]
 :HL["https://images.squarespace-cdn.com/content/v1/670f885de587b3675c7f85ee/0f5a4cd9-960e-492a-b050-f9b803514396/playstore.png","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"about","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"QaaOyX6qUbdVYZxuijMP0"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"about","param":null,"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}},"staleTime":300,"buildId":"2v6v64aCQaXDhsEa3JhqI"}

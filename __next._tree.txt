@@ -17,4 +17,4 @@
 :HL["https://images.squarespace-cdn.com/content/v1/670f885de587b3675c7f85ee/1ecca722-1d4c-4af1-ab58-1c59d0761f7b/sosan-application-mobile-de-sant%C3%A9-en-Afrique.png","image"]
 :HL["https://images.squarespace-cdn.com/content/v1/670f885de587b3675c7f85ee/4e86bf2f-ff25-4a45-8040-26653edee1c2/logo-main.png","image"]
 :HL["/logo.webp","image"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"QaaOyX6qUbdVYZxuijMP0"}
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"2v6v64aCQaXDhsEa3JhqI"}
