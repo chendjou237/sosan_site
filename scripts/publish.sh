@@ -21,8 +21,17 @@ trap cleanup EXIT
 
 cleanup
 git fetch origin deploy 2>/dev/null || true
-git worktree add -B deploy .deploy origin/deploy 2>/dev/null \
-  || git worktree add -B deploy .deploy
+
+if git worktree add -B deploy .deploy origin/deploy 2>/dev/null; then
+  :
+else
+  # First run: start a true orphan. Branching off HEAD instead would drag the
+  # whole source history — and every blob ever committed — into the clone that
+  # Hostinger pulls down into public_html/.
+  git worktree add --detach -q .deploy
+  git -C .deploy checkout -q --orphan deploy
+  git -C .deploy rm -rq --cached . 2>/dev/null || true
+fi
 
 rsync -a --delete --exclude .git out/ .deploy/
 
