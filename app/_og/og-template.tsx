@@ -1,5 +1,17 @@
+/**
+ * Source template for `public/og.png` — NOT a live route.
+ *
+ * `app/_og/` is a Next private folder, so this file is excluded from routing.
+ * It lives here because the generated `opengraph-image` route emits a PNG with
+ * no file extension, which LiteSpeed serves as `application/octet-stream` and
+ * link-preview scrapers then reject.
+ *
+ * To regenerate the image: move this file back to `app/opengraph-image.tsx`,
+ * run `npm run build`, then `cp out/opengraph-image public/og.png` and move it
+ * back here.
+ */
 import { ImageResponse } from "next/og";
-export const dynamic = 'force-static';
+export const dynamic = "force-static";
 
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";

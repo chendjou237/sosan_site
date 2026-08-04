@@ -28,11 +28,13 @@ export const metadata: Metadata = {
     description,
     locale: "fr_FR",
     type: "website",
+    images: [{ url: "/og.png", width: 1200, height: 630, type: "image/png" }],
   },
   twitter: {
     card: "summary_large_image",
     title: "SOSAN — Votre solution santé pour tous",
     description,
+    images: ["/og.png"],
   },
 };
 

@@ -5,7 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "postbuild": "node scripts/postbuild.mjs",
+    "preview": "npx --yes serve out",
+    "deploy": "npm run build && bash scripts/publish.sh",
     "lint": "next lint"
   },
   "dependencies": {

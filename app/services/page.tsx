@@ -87,7 +87,7 @@ const services: Service[] = [
     desc: "Protégez-vous et vos proches avec une couverture adaptée.",
     screen: "assurance",
     featured: true,
-    href: "/diaspo",
+    href: "/diaspo/",
     points: [
       "Assurance Diaspo / Activa en quelques clics",
       "Couvrez-vous et toute votre famille",

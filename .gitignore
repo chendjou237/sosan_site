@@ -1,7 +1,11 @@
 /node_modules
 /.next
 /out
+/out.zip
 /build
+
+# Transient worktree used by scripts/publish.sh
+/.deploy
 *.tsbuildinfo
 next-env.d.ts
 .DS_Store

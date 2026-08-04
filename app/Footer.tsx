@@ -24,10 +24,10 @@ export default function Footer() {
         <div>
           <h4>Navigation</h4>
           <div className="footer__links">
-            <a href="/about">Qui sommes-nous</a>
-            <a href="/services">Nos services</a>
-            <a href="/diaspo">Diaspo Support</a>
-            <a href="/actualites">Actualités</a>
+            <a href="/about/">Qui sommes-nous</a>
+            <a href="/services/">Nos services</a>
+            <a href="/diaspo/">Diaspo Support</a>
+            <a href="/actualites/">Actualités</a>
             <a href="/#partners">Partenaires</a>
           </div>
         </div>

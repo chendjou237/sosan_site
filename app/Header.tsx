@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 const NAV_LINKS = [
-  { href: "/about", label: "Qui sommes-nous" },
-  { href: "/services", label: "Services" },
-  { href: "/diaspo", label: "Diaspo Support" },
-  { href: "/actualites", label: "Actualités" },
+  { href: "/about/", label: "Qui sommes-nous" },
+  { href: "/services/", label: "Services" },
+  { href: "/diaspo/", label: "Diaspo Support" },
+  { href: "/actualites/", label: "Actualités" },
   { href: "/#partners", label: "Partenaires" },
   { href: "/#contact", label: "Contact" },
 ];

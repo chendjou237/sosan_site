@@ -138,7 +138,7 @@ export default function About() {
                 diaspora, avec l&apos;accompagnement Diaspo Care et un paiement
                 mensuel. À partir de 30&nbsp;€/mois.
               </p>
-              <a href="/diaspo" className="btn-green">
+              <a href="/diaspo/" className="btn-green">
                 Découvrir Diaspo Support →
               </a>
             </div>

@@ -129,7 +129,7 @@ export default function Home() {
               <div className="store-row">
                 <StoreButtons />
               </div>
-              <a href="/diaspo" className="hero__secondary">
+              <a href="/diaspo/" className="hero__secondary">
                 Découvrir les formules Diaspo <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -159,70 +159,21 @@ export default function Home() {
             <div className="hero__frame">
               <img
                 src="/hero.png"
-                alt="Pr. Jean Bahebeck, ambassadeur SOSAN"
+                alt="Pr Jean Bahebeck, ambassadeur SOSAN"
               />
             </div>
             <div className="float-card float-card--amb">
               <span className="float-card__icon">
                 <IconCheckCircle size={22} />
               </span>
-              <h1>
-                Des soins de santé fiables, <span>où que vous soyez.</span>
-              </h1>
-              <p className="hero__lead">
-                Consultez des médecins, payez en toute transparence et protégez
-                vos proches au Cameroun — sur place comme depuis la diaspora, dans
-                une seule application.
-              </p>
-              <div className="hero__cta">
-                <div className="store-row">
-                  <StoreButtons />
-                </div>
-                <a href="/diaspo" className="hero__secondary">
-                  Découvrir les formules Diaspo <span aria-hidden="true">→</span>
-                </a>
-              </div>
-              <p className="hero__trust">
-                <IconShield size={15} />
-                Déjà sur l&apos;App Store &amp; Google Play · en partenariat avec
-                le Ministère de la Santé
-              </p>
-              <div className="stats">
-                <div>
-                  <div className="stat__num">24/7</div>
-                  <div className="stat__label">Consultations en ligne</div>
-                </div>
-                <div className="stat__sep" />
-                <div>
-                  <div className="stat__num">80%</div>
-                  <div className="stat__label">des soins couverts</div>
-                </div>
-                <div className="stat__sep" />
-                <div>
-                  <div className="stat__num">0</div>
-                  <div className="stat__label">frais caché</div>
-                </div>
-              </div>
-            </div>
-            <div className="hero__media">
-              <div className="hero__frame">
-                <img
-                  src="/hero.png"
-                  alt="Pr Jean Bahebeck, ambassadeur SOSAN"
-                />
-              </div>
-              <div className="float-card float-card--amb">
-                <span className="float-card__icon">
-                  <IconCheckCircle size={22} />
-                </span>
-                <div>
-                  <div className="float-card__title">Pr Jean Bahebeck</div>
-                  <div className="float-card__sub">Ambassadeur SOSAN</div>
-                </div>
+              <div>
+                <div className="float-card__title">Pr Jean Bahebeck</div>
+                <div className="float-card__sub">Ambassadeur SOSAN</div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
         {/* ===== TRUST BAR ===== */}
         <section className="trustbar" aria-label="Institutions partenaires">
@@ -327,7 +278,7 @@ export default function Home() {
                 Au Cameroun et pour la diaspora
               </li>
             </ul>
-            <a href="/about" className="btn-green">
+            <a href="/about/" className="btn-green">
               En savoir plus →
             </a>
           </Reveal>
@@ -381,7 +332,7 @@ export default function Home() {
               })}
             </div>
             <div className="services-more">
-              <a href="/services" className="btn-green">
+              <a href="/services/" className="btn-green">
                 Découvrir tous nos services →
               </a>
               <span>Dix services réunis dans une seule application</span>
@@ -422,7 +373,7 @@ export default function Home() {
                   réseau sélectionné d&apos;établissements publics et
                   confessionnels.
                 </p>
-                <a href="/diaspo" className="plan__cta-outline">
+                <a href="/diaspo/" className="plan__cta-outline">
                   Choisir Silver
                 </a>
               </div>
@@ -453,7 +404,7 @@ export default function Home() {
                   étendu d&apos;hôpitaux publics et privés d&apos;excellence au
                   Cameroun.
                 </p>
-                <a href="/diaspo" className="plan__cta-solid">
+                <a href="/diaspo/" className="plan__cta-solid">
                   Choisir Gold
                 </a>
               </div>
@@ -481,14 +432,14 @@ export default function Home() {
                   coordination d&apos;évacuation sanitaire (EVASAN) à
                   l&apos;étranger.
                 </p>
-                <a href="/diaspo" className="plan__cta-outline">
+                <a href="/diaspo/" className="plan__cta-outline">
                   Choisir Premium
                 </a>
               </div>
             </div>
           </div>
           <div className="diaspo__more">
-            <a href="/diaspo" className="btn-green">
+            <a href="/diaspo/" className="btn-green">
               Découvrir Diaspo Support →
             </a>
             <span>Tarif adulte, par mois · profils enfant &amp; senior disponibles</span>
@@ -593,7 +544,7 @@ export default function Home() {
                 <h2>La santé en mouvement</h2>
                 <p>Nos annonces, événements et partenariats les plus récents.</p>
               </div>
-              <a href="/actualites" className="news-more">
+              <a href="/actualites/" className="news-more">
                 Voir toutes les actualités <span aria-hidden="true">→</span>
               </a>
             </div>
@@ -603,7 +554,7 @@ export default function Home() {
                 return (
                   <Reveal
                     as="a"
-                    href="/actualites"
+                    href="/actualites/"
                     className="news-card"
                     key={post.slug}
                     delay={i * 90}
