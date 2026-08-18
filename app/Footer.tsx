@@ -37,12 +37,8 @@ export default function Footer() {
             <a href={PARTNER_FORM} target="_blank" rel="noopener noreferrer">
               Devenir partenaire
             </a>
-            <span className="footer__link-disabled" aria-disabled="true">
-              Politique de confidentialité
-            </span>
-            <span className="footer__link-disabled" aria-disabled="true">
-              Conditions générales
-            </span>
+            <a href="/privacy-policy/">Politique de confidentialité</a>
+            <a href="/privacy-policy/">Conditions générales</a>
             <a href="/#contact">Nous contacter</a>
           </div>
         </div>

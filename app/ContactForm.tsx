@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { IconCheckCircle } from "./icons";
+import { CONTACT_EMAIL } from "./constants";
 
-const CONTACT_EMAIL = "contact@sosanmed.com";
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);

@@ -5,6 +5,8 @@ export const PARTNER_FORM =
   "https://docs.google.com/forms/d/e/1FAIpQLSfMhj13vRZbfru3IqrUI5ZjXRVZWV8YNpCncyv-fKuYsDYOOQ/viewform";
 export const CDN = "https://images.squarespace-cdn.com/content";
 
+export const CONTACT_EMAIL = "contact@sosanmed.com";
+
 export const APPSTORE_IMG = `${CDN}/v1/670f885de587b3675c7f85ee/02d24ac5-221d-4f7c-9191-c84ae189f97f/appstore.png`;
 export const PLAYSTORE_IMG = `${CDN}/v1/670f885de587b3675c7f85ee/0f5a4cd9-960e-492a-b050-f9b803514396/playstore.png`;
 
