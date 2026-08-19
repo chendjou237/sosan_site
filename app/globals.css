@@ -3702,3 +3702,51 @@ a.news-card:hover .news-card__link {
     position: static;
   }
 }
+
+/* Documents split into parts (e.g. the two account-deletion guides). */
+.legal__part {
+  border-top: 1px solid var(--border);
+  padding-top: 34px;
+  margin-top: 48px;
+}
+.legal__body > div:first-child .legal__part {
+  border-top: 0;
+  padding-top: 0;
+  margin-top: 0;
+}
+.legal__part h2 {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--green-text);
+  margin: 0 0 12px;
+}
+.legal__part p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.75;
+  margin: 0;
+}
+.legal__part + .legal__section {
+  margin-top: 28px;
+}
+.legal__toc-group + .legal__toc-group {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+.legal__toc-group h3 {
+  font-family: var(--font-poppins), sans-serif;
+  font-weight: 700;
+  font-size: 11.5px;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--green-text);
+  margin: 0 0 10px;
+}
+/* Step labels ("Étape 1") are wider than "1." — keep them on their own line. */
+.legal__section h2 .legal__num {
+  display: inline;
+}

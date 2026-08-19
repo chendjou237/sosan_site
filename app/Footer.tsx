@@ -38,7 +38,8 @@ export default function Footer() {
               Devenir partenaire
             </a>
             <a href="/privacy-policy/">Politique de confidentialité</a>
-            <a href="/privacy-policy/">Conditions générales</a>
+            <a href="/terms/">Conditions générales</a>
+            <a href="/account-deletion/">Suppression de compte</a>
             <a href="/#contact">Nous contacter</a>
           </div>
         </div>
