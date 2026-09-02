@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<url>
+<loc>https://sosanmed.com/fr/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/" />
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/fr/about/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/about/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/about/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/fr/services/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/services/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/services/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/fr/diaspo/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/diaspo/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/diaspo/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/fr/actualites/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/actualites/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/actualites/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/fr/privacy-policy/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/privacy-policy/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/privacy-policy/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/fr/terms/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/terms/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/terms/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/fr/account-deletion/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/account-deletion/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/account-deletion/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/en/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/" />
+<changefreq>monthly</changefreq>
+<priority>1</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/en/about/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/about/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/about/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/en/services/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/services/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/services/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/en/diaspo/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/diaspo/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/diaspo/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/en/actualites/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/actualites/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/actualites/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/en/privacy-policy/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/privacy-policy/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/privacy-policy/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/en/terms/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/terms/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/terms/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://sosanmed.com/en/account-deletion/</loc>
+<xhtml:link rel="alternate" hreflang="fr" href="https://sosanmed.com/fr/account-deletion/" />
+<xhtml:link rel="alternate" hreflang="en" href="https://sosanmed.com/en/account-deletion/" />
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+</urlset>
