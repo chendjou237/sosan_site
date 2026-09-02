@@ -8,10 +8,14 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-if [ ! -f out/index.html ]; then
-  echo "publish: out/index.html missing — run 'npm run build' first." >&2
-  exit 1
-fi
+# The site has no page at the root: both locale trees live under out/fr and
+# out/en, and out/.htaccess is written by the postbuild step.
+for required in out/fr/index.html out/en/index.html out/.htaccess out/404.html; do
+  if [ ! -f "$required" ]; then
+    echo "publish: $required missing — run 'npm run build' first." >&2
+    exit 1
+  fi
+done
 
 SHA="$(git rev-parse --short HEAD)"
 SUBJECT="$(git log -1 --pretty=%s)"
