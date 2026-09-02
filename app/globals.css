@@ -238,10 +238,41 @@ h4 {
   align-items: center;
   gap: 14px;
 }
+/* Language switcher — was an inert <span>; now a real two-option control. */
 .lang {
-  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: #fff;
+}
+.lang__opt {
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
   color: var(--muted-2);
-  font-weight: 500;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+.lang__opt:hover {
+  color: var(--navy);
+  background: var(--border);
+}
+.lang__opt:focus-visible {
+  outline: 2px solid var(--green);
+  outline-offset: 2px;
+}
+.lang__opt--active {
+  color: #fff;
+  background: var(--grad-brand);
+}
+.lang__opt--active:hover {
+  color: #fff;
 }
 .btn-dark {
   display: inline-flex;

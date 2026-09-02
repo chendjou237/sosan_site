@@ -1,6 +1,8 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import { CONTACT_EMAIL } from "./constants";
+import type { Locale } from "./i18n/config";
+import { ui } from "./i18n/ui";
 
 export type Block =
   | { kind: "p"; text: string }
@@ -93,17 +95,24 @@ function groupByPart(sections: Section[]) {
   return groups;
 }
 
-export default function LegalDoc({ doc }: { doc: LegalDocument }) {
+export default function LegalDoc({
+  doc,
+  lang,
+}: {
+  doc: LegalDocument;
+  lang: Locale;
+}) {
+  const t = ui(lang).legal;
   // Numbering restarts per part, so a guide's steps read 1..6, not 1..12.
   const groups = groupByPart(doc.sections);
 
   return (
     <>
-      <Header />
+      <Header lang={lang} />
       <main id="main-content">
         <section className="legal-hero">
           <div className="wrap">
-            <span className="kicker">Informations légales</span>
+            <span className="kicker">{t.kicker}</span>
             <h1>{doc.title}</h1>
             <p>{doc.intro}</p>
           </div>
@@ -112,7 +121,7 @@ export default function LegalDoc({ doc }: { doc: LegalDocument }) {
         <section className="legal">
           <div className="wrap legal__wrap">
             <nav className="legal__toc" aria-labelledby="toc-title">
-              <h2 id="toc-title">Sommaire</h2>
+              <h2 id="toc-title">{t.toc}</h2>
               {groups.map((group, g) => (
                 <div key={g} className="legal__toc-group">
                   {group.part && <h3>{group.part.title}</h3>}
@@ -157,7 +166,7 @@ export default function LegalDoc({ doc }: { doc: LegalDocument }) {
           </div>
         </section>
       </main>
-      <Footer />
+      <Footer lang={lang} />
     </>
   );
 }

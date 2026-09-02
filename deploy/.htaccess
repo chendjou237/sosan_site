@@ -9,6 +9,18 @@ ErrorDocument 404 /404.html
 
 RewriteEngine On
 
+# --- Language negotiation -------------------------------------------------
+# The site is a static export: both /fr/ and /en/ are built up front and there
+# is no server-side app to negotiate a locale, so the root does it here.
+# 302 (not 301) because the target varies per visitor — a cached 301 would pin
+# everyone to whichever language the first visitor happened to get.
+RewriteCond %{HTTP:Accept-Language} ^en [NC]
+RewriteRule ^$ /en/ [R=302,L]
+RewriteRule ^$ /fr/ [R=302,L]
+
+# Pre-i18n URLs (the site shipped French at the root) → the French tree.
+RewriteRule ^(about|services|diaspo|actualites|privacy-policy|terms|account-deletion)/?$ /fr/$1/ [R=301,L]
+
 # Hostinger's Git deploy leaves .git/ inside public_html — never serve it.
 RedirectMatch 404 /\.git
 RedirectMatch 404 /\.github
@@ -32,6 +44,10 @@ RewriteRule ^ https://%1%{REQUEST_URI} [L,R=301]
   # deploy won't reach repeat visitors.
   <FilesMatch "\.(html|txt)$">
     Header set Cache-Control "public, max-age=0, must-revalidate"
+  </FilesMatch>
+  # The root redirect depends on the request's language header.
+  <FilesMatch "^$">
+    Header append Vary "Accept-Language"
   </FilesMatch>
   Header always set X-Content-Type-Options "nosniff"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"

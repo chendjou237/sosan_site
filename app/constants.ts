@@ -7,6 +7,10 @@ export const CDN = "https://images.squarespace-cdn.com/content";
 
 export const CONTACT_EMAIL = "contact@sosanmed.com";
 
+/** Adviser lines shown on the Diaspo page. `display` is already formatted. */
+export const PHONE_FR = { tel: "+33695442982", display: "+33 6 95 44 29 82" };
+export const PHONE_CM = { tel: "+237659816380", display: "+237 6 59 81 63 80" };
+
 export const APPSTORE_IMG = `${CDN}/v1/670f885de587b3675c7f85ee/02d24ac5-221d-4f7c-9191-c84ae189f97f/appstore.png`;
 export const PLAYSTORE_IMG = `${CDN}/v1/670f885de587b3675c7f85ee/0f5a4cd9-960e-492a-b050-f9b803514396/playstore.png`;
 

@@ -1,9 +1,10 @@
 /**
  * Post-export step for the Hostinger static deploy.
  *
- *   1. copies deploy/.htaccess into out/
+ *   1. copies deploy/.htaccess and deploy/404.html into out/
  *   2. strips .DS_Store files that macOS leaks through public/
  *   3. audits every local asset reference in the exported HTML *case-sensitively*
+ *   4. checks no page links across the /fr/ ↔ /en/ locale boundary
  *
  * Step 3 exists because the build machine is macOS (case-insensitive) and the
  * server is Linux (case-sensitive): `fs.existsSync` happily resolves
@@ -32,8 +33,10 @@ function walk(dir, base = "", acc = []) {
   return acc;
 }
 
-// 1. Server config.
+// 1. Server config + the standalone bilingual error page Apache serves for
+// both locale trees (Next has no root route to emit one under app/[lang]).
 fs.copyFileSync(path.join(root, "deploy/.htaccess"), path.join(outDir, ".htaccess"));
+fs.copyFileSync(path.join(root, "deploy/404.html"), path.join(outDir, "404.html"));
 
 // 2. macOS cruft.
 let removed = 0;
@@ -73,8 +76,32 @@ for (const [url, pages] of refs) {
   missing.push({ url, pages: [...pages] });
 }
 
+// 4. Locale-leak check: a page under en/ must not link into the fr/ tree, or
+// the visitor is silently dropped back into the other language mid-journey.
+// Only <a> tags count — <link rel="alternate"> and the language switcher (an
+// anchor carrying hrefLang for the *other* locale) cross the boundary on
+// purpose. Assets under /_next/ and /public are shared and unprefixed.
+const LOCALES = ["fr", "en"];
+const leaks = [];
+let anchorsChecked = 0;
+for (const rel of htmlFiles) {
+  const pageLocale = rel.split("/")[0];
+  if (!LOCALES.includes(pageLocale)) continue;
+  const html = fs.readFileSync(path.join(outDir, rel), "utf8");
+  for (const [tag] of html.matchAll(/<a\b[^>]*>/g)) {
+    const href = tag.match(/href="(\/[a-z]{2})\//)?.[1]?.slice(1);
+    if (!href || !LOCALES.includes(href) || href === pageLocale) continue;
+    anchorsChecked++;
+    // The switcher declares the language it points at on the tag itself.
+    if (new RegExp(`hrefLang="${href}"`, "i").test(tag)) continue;
+    leaks.push({ page: rel, to: href, tag: tag.slice(0, 90) });
+  }
+}
+
 console.log(
-  `postbuild: .htaccess copied, ${removed} .DS_Store removed, ${refs.size} local refs checked across ${htmlFiles.length} pages`
+  `postbuild: .htaccess + 404.html copied, ${removed} .DS_Store removed, ` +
+    `${refs.size} local refs checked across ${htmlFiles.length} pages, ` +
+    `${anchorsChecked} cross-locale anchors (${leaks.length} leaking)`
 );
 
 if (missing.length) {
@@ -84,6 +111,16 @@ if (missing.length) {
   }
   console.error(
     "\nThese will 404 on the Linux server even if they resolve on macOS. Fix the filename case or the reference."
+  );
+  process.exit(1);
+}
+
+if (leaks.length) {
+  console.error("\npostbuild: pages linking across the locale boundary:");
+  for (const { page, to, tag } of leaks)
+    console.error(`  ${page} -> /${to}/\n    ${tag}`);
+  console.error(
+    "\nUse localePath(lang, path) rather than a hardcoded /fr/ or /en/ href."
   );
   process.exit(1);
 }

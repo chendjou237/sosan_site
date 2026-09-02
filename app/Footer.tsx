@@ -1,56 +1,58 @@
 import StoreButtons from "./StoreButtons";
-import { PARTNER_FORM } from "./constants";
+import { PARTNER_FORM, CONTACT_EMAIL } from "./constants";
 import { IconMapPin, IconMail } from "./icons";
+import { localePath, type Locale } from "./i18n/config";
+import { ui } from "./i18n/ui";
 
-export default function Footer() {
+export default function Footer({ lang }: { lang: Locale }) {
+  const t = ui(lang);
+  const p = (path: string) => localePath(lang, path);
+
   return (
     <footer className="footer">
       <div className="footer__grid">
         <div>
           <div className="footer__brand">
             <span className="footer__brand-mark">
-              <img src="/logo.webp" alt="SOSAN" />
+              <img src="/logo.webp" alt={t.header.logoAlt} />
             </span>
             SOSAN
           </div>
-          <p className="footer__about">
-            Votre solution santé pour tous. La plateforme qui rapproche
-            l&apos;Afrique des soins fiables, rapides et accessibles.
-          </p>
+          <p className="footer__about">{t.footer.about}</p>
           <div className="footer__stores">
-            <StoreButtons height={40} />
+            <StoreButtons lang={lang} height={40} />
           </div>
         </div>
         <div>
-          <h4>Navigation</h4>
+          <h4>{t.footer.navHeading}</h4>
           <div className="footer__links">
-            <a href="/about/">Qui sommes-nous</a>
-            <a href="/services/">Nos services</a>
-            <a href="/diaspo/">Diaspo Support</a>
-            <a href="/actualites/">Actualités</a>
-            <a href="/#partners">Partenaires</a>
+            <a href={p("/about/")}>{t.nav.about}</a>
+            <a href={p("/services/")}>{t.footer.servicesLink}</a>
+            <a href={p("/diaspo/")}>{t.nav.diaspo}</a>
+            <a href={p("/actualites/")}>{t.nav.news}</a>
+            <a href={p("/#partners")}>{t.nav.partners}</a>
           </div>
         </div>
         <div>
-          <h4>Ressources</h4>
+          <h4>{t.footer.resourcesHeading}</h4>
           <div className="footer__links">
             <a href={PARTNER_FORM} target="_blank" rel="noopener noreferrer">
-              Devenir partenaire
+              {t.footer.becomePartner}
             </a>
-            <a href="/privacy-policy/">Politique de confidentialité</a>
-            <a href="/terms/">Conditions générales</a>
-            <a href="/account-deletion/">Suppression de compte</a>
-            <a href="/#contact">Nous contacter</a>
+            <a href={p("/privacy-policy/")}>{t.footer.privacy}</a>
+            <a href={p("/terms/")}>{t.footer.terms}</a>
+            <a href={p("/account-deletion/")}>{t.footer.accountDeletion}</a>
+            <a href={p("/#contact")}>{t.footer.contactUs}</a>
           </div>
         </div>
         <div>
-          <h4>Contact</h4>
+          <h4>{t.footer.contactHeading}</h4>
           <div className="footer__contact">
             <span>
-              <IconMapPin size={16} /> Douala &amp; Yaoundé, Cameroun
+              <IconMapPin size={16} /> {t.footer.address}
             </span>
             <span>
-              <IconMail size={16} /> contact@sosanmed.com
+              <IconMail size={16} /> {CONTACT_EMAIL}
             </span>
             <div className="footer__social">
               <span className="footer__link-disabled" aria-disabled="true">
@@ -66,9 +68,7 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="footer__bottom">
-        © 2026 SOSAN Med. Tous droits réservés.
-      </div>
+      <div className="footer__bottom">{t.footer.rights}</div>
     </footer>
   );
 }
