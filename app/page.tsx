@@ -159,68 +159,19 @@ export default function Home() {
             <div className="hero__frame">
               <img
                 src="/hero.png"
-                alt="Pr. Jean Bahebeck, ambassadeur SOSAN"
+                alt="Pr Jean Bahebeck, ambassadeur SOSAN"
               />
             </div>
             <div className="float-card float-card--amb">
               <span className="float-card__icon">
                 <IconCheckCircle size={22} />
               </span>
-              <h1>
-                Des soins de santé fiables, <span>où que vous soyez.</span>
-              </h1>
-              <p className="hero__lead">
-                Consultez des médecins, payez en toute transparence et protégez
-                vos proches au Cameroun — sur place comme depuis la diaspora, dans
-                une seule application.
-              </p>
-              <div className="hero__cta">
-                <div className="store-row">
-                  <StoreButtons />
-                </div>
-                <a href="/diaspo" className="hero__secondary">
-                  Découvrir les formules Diaspo <span aria-hidden="true">→</span>
-                </a>
-              </div>
-              <p className="hero__trust">
-                <IconShield size={15} />
-                Déjà sur l&apos;App Store &amp; Google Play · en partenariat avec
-                le Ministère de la Santé
-              </p>
-              <div className="stats">
-                <div>
-                  <div className="stat__num">24/7</div>
-                  <div className="stat__label">Consultations en ligne</div>
-                </div>
-                <div className="stat__sep" />
-                <div>
-                  <div className="stat__num">80%</div>
-                  <div className="stat__label">des soins couverts</div>
-                </div>
-                <div className="stat__sep" />
-                <div>
-                  <div className="stat__num">0</div>
-                  <div className="stat__label">frais caché</div>
-                </div>
+              <div>
+                <div className="float-card__title">Pr Jean Bahebeck</div>
+                <div className="float-card__sub">Ambassadeur SOSAN</div>
               </div>
             </div>
-            <div className="hero__media">
-              <div className="hero__frame">
-                <img
-                  src="/hero.png"
-                  alt="Pr Jean Bahebeck, ambassadeur SOSAN"
-                />
-              </div>
-              <div className="float-card float-card--amb">
-                <span className="float-card__icon">
-                  <IconCheckCircle size={22} />
-                </span>
-                <div>
-                  <div className="float-card__title">Pr Jean Bahebeck</div>
-                  <div className="float-card__sub">Ambassadeur SOSAN</div>
-                </div>
-              </div>
-            </div>
+          </div>
           </div>
         </section>
 
